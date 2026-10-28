@@ -1,0 +1,183 @@
+/* Copyright (C) 2012-2026 Zammad Foundation, https://zammad-foundation.org/ */
+
+/*
+  Amber skin: app skeleton.
+
+  The primary sidebar is rendered inside a forced `data-theme="dark"` island. In the light
+  theme we re-map the dark-surface tokens *inside that island only*, which turns it into the
+  light Amber sidebar without touching the component.
+*/
+
+:root:not([data-theme='dark']) #primary-sidebar {
+  --color-neutral-950: #f8f8f8;
+
+  background-color: #f8f8f8;
+  border-inline-end: 1px solid #e6e6e6;
+
+  [data-theme='dark'] {
+    color-scheme: light;
+
+    /* Dark-island surfaces -> light sidebar fills. */
+    --color-gray-400: #e2e2e2;
+    --color-gray-500: #ededed;
+    --color-gray-600: #ededed;
+    --color-gray-700: #fff;
+    --color-gray-800: #f3f3f3;
+    --color-gray-900: #e6e6e6;
+
+    /* Dark-island text -> ink. */
+    --color-neutral-400: #404040;
+    --color-neutral-500: #6b6b6b;
+    --color-white: #171717;
+
+    /* Dark-island accents. The active nav row is `bg-blue-800! text-white!` (layered
+       !important, which plain rules cannot beat), so it is restyled through its tokens:
+       white "raised" row with ink text. */
+    --color-blue-200: #fff;
+    --color-blue-600: #171717;
+    --color-blue-800: #fff;
+    --color-blue-850: #171717;
+    --color-blue-900: #ededed;
+
+    color: #404040;
+  }
+
+  /* Nav rows: 32px, 14px, white "raised" active row. */
+  [data-zammad-target='PageNavigation'] [data-zammad-target='CommonLink'],
+  [data-zammad-target='UserTaskbarTabs'] [data-zammad-target='CommonLink'] {
+    min-height: 2rem;
+    padding-block: 0.375rem;
+    padding-inline: 0.5rem;
+    border-radius: var(--radius-lg);
+    font-size: 0.875rem;
+    font-weight: 450;
+    color: #404040;
+    transition:
+      background-color 120ms ease,
+      color 120ms ease;
+
+    /* Grey outline icons; the row's label carries the ink. */
+    > svg {
+      color: #6b6b6b;
+    }
+
+    &:hover {
+      background-color: #ededed;
+      color: #171717;
+    }
+
+    &.router-link-active > svg {
+      color: #171717;
+    }
+
+    &.router-link-active {
+      font-weight: 500;
+      box-shadow: var(--amber-shadow-control);
+    }
+  }
+
+  /* Open-ticket tabs: the current one is `!bg-yellow-500 text-white` -> raised white row. */
+  .router-link-active {
+    --color-yellow-500: #fff;
+
+    box-shadow: var(--amber-shadow-control);
+    font-weight: 500;
+  }
+
+  /* Keyboard focus would be white-on-white with the island's re-mapped blue-800. */
+  :focus-visible {
+    outline-color: #171717 !important;
+  }
+
+  [data-zammad-target='CommonSectionCollapse'] h3,
+  [data-zammad-target='CommonSectionCollapse'] header {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #6b6b6b;
+  }
+
+  [data-zammad-target='CommonInputSearch'] {
+    background-color: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: var(--radius-lg);
+    box-shadow: none;
+  }
+
+  /* Footer actions and toggles keep ink as their accent (undo the nav-row re-map). */
+  [data-zammad-target='MenuContainer'],
+  [data-zammad-target='FieldToggleInput'] {
+    --color-blue-800: #171717;
+    --color-white: #fff;
+  }
+
+  [data-zammad-target='MenuContainer'] {
+    background-color: transparent;
+  }
+}
+
+/* Main content area: white canvas. */
+:root:not([data-theme='dark']) [data-zammad-target='LayoutMain'] {
+  background-color: #fff;
+  color: #404040;
+}
+
+/* Page header breadcrumb: muted trail, ink current page. */
+[data-zammad-target='CommonBreadcrumb'] {
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+}
+
+:root:not([data-theme='dark']) [data-zammad-target='CommonBreadcrumb'] {
+  color: #6b6b6b;
+
+  li:last-child,
+  [aria-current] {
+    color: #171717;
+  }
+}
+
+/* Secondary list sidebars (e.g. overviews) mirror the primary nav. */
+:root:not([data-theme='dark']) [data-zammad-target='LayoutSidebar']:not(#primary-sidebar) {
+  background-color: #fff;
+  border-color: #ededed;
+}
+
+/* ------------------------------------------------ Page header bar (reference) */
+
+/*
+  Every page header row is the element that holds the breadcrumb. Give it the reference's 48px
+  bar with a hairline, so list and settings pages read like Frappe's "Tickets / All tickets" bar.
+*/
+:root:not([data-theme='dark'])
+  [data-zammad-target='LayoutMain']
+  > *
+  > :has(> [data-zammad-target='CommonBreadcrumb']) {
+  min-height: 3rem;
+  border-bottom: 1px solid #ededed;
+}
+
+/* Sidebar search reads as a nav row ("Search ⌘K"), not a boxed field. */
+:root:not([data-theme='dark']) #primary-sidebar [data-zammad-target='CommonInputSearch'] {
+  min-height: 2rem;
+  padding-block: 0.375rem;
+  border-color: transparent;
+  background-color: transparent;
+
+  &:hover,
+  &:focus-within {
+    background-color: #ededed;
+  }
+
+  input {
+    background-color: transparent;
+    font-size: 0.875rem;
+  }
+}
+
+/* Compact footer: a 32px account avatar instead of the 56px disc. */
+#primary-sidebar [data-zammad-target='AvatarMenu'] [data-zammad-target='CommonAvatar'] {
+  width: 2rem;
+  height: 2rem;
+  font-size: 0.75rem;
+}

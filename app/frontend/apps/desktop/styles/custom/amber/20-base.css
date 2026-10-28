@@ -1,0 +1,52 @@
+/* Copyright (C) 2012-2026 Zammad Foundation, https://zammad-foundation.org/ */
+
+/* Amber skin: base typography and global affordances. */
+
+/* `:root` (not `html`) out-ranks the page template's unlayered `body, html` font rule. */
+:root,
+:root body {
+  font-family: var(--default-font-family);
+  font-feature-settings: var(--default-font-feature-settings);
+  letter-spacing: -0.003em;
+}
+
+:root:not([data-theme='dark']) body {
+  background-color: #fff;
+  color: #171717;
+}
+
+/* Counts, IDs and times line up. */
+time,
+td,
+[data-zammad-target='CommonBadge'] {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Placeholders stay lighter than helper text (which is AA), so they never read as values. */
+:root:not([data-theme='dark']) input::placeholder,
+:root:not([data-theme='dark']) textarea::placeholder {
+  color: #8f8f8f;
+}
+
+:root:not([data-theme='dark']) ::selection {
+  background-color: #e6e6e6;
+}
+
+/* Thin, quiet scrollbars. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.18) transparent;
+}
+
+:root[data-theme='dark'] * {
+  scrollbar-color: rgba(255, 255, 255, 0.18) transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

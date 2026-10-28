@@ -1,0 +1,54 @@
+/* Copyright (C) 2012-2026 Zammad Foundation, https://zammad-foundation.org/ */
+
+/*
+  Amber skin: variant adapter.
+
+  A few Zammad semantics exist only as Tailwind utility classes (no data attribute), e.g. the
+  yellow "submit" button. This is the ONLY file that keys off utility class names — re-check it
+  after a Zammad upgrade.
+*/
+
+/* Submit button: Zammad yellow -> Amber ink primary. */
+:root:not([data-theme='dark']) [data-zammad-target='CommonButton'].bg-yellow-300 {
+  background-color: #171717;
+  color: #fff;
+
+  &:hover {
+    background-color: #000;
+  }
+}
+
+/* Primary button hover (blue-850 is already black via tokens; add depth). */
+:root:not([data-theme='dark']) [data-zammad-target='CommonButton'].bg-blue-800:hover {
+  background-color: #000;
+}
+
+/*
+  Dialog/flyout backdrop: a light veil instead of 67% black. Scoped to the backdrop's class so the
+  image viewer, which reads the same `--color-alpha-900` token, keeps its dark stage.
+*/
+:root:not([data-theme='dark']) .bg-alpha-900 {
+  background-color: rgba(15, 15, 15, 0.28);
+}
+
+/* Secondary (text) buttons: ghost fill on hover instead of an outline. */
+:root:not([data-theme='dark']) [data-zammad-target='CommonButton'].bg-transparent:hover {
+  background-color: #f3f3f3;
+}
+
+/*
+  Labelled secondary buttons (`bg-transparent text-blue-800` + a text label) become the
+  reference's grey filled toolbar buttons; icon-only buttons stay bare.
+*/
+:root:not([data-theme='dark'])
+  [data-zammad-target='CommonButton'].bg-transparent.text-blue-800:has(> span) {
+  min-height: 2rem;
+  padding-inline: 0.75rem;
+  border-radius: var(--radius-lg);
+  background-color: #f3f3f3;
+  color: #171717;
+
+  &:hover {
+    background-color: #ededed;
+  }
+}

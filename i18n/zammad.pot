@@ -1146,6 +1146,7 @@ msgstr ""
 msgid "Active only"
 msgstr ""
 
+#: app/frontend/apps/desktop/addons/amber/AmberArticleTabs.vue:9
 #: app/assets/javascripts/app/views/time_accounting/accounted_time.jst.eco:16
 msgid "Activity"
 msgstr ""
@@ -9612,6 +9613,7 @@ msgstr ""
 msgid "Integrity verification of the downloaded WhatsApp media failed."
 msgstr ""
 
+#: app/frontend/apps/desktop/addons/amber/AmberArticleTabs.vue:11
 #: app/assets/javascripts/app/controllers/knowledge_base/content_can_be_published_form.coffee:105
 #: app/frontend/apps/desktop/components/KnowledgeBase/KnowledgeBaseAnswerIcon/visibilityMeta.ts:25
 #: app/frontend/apps/desktop/components/Ticket/TicketBulkEditFlyout/TicketBulkEditFlyout.vue:144
@@ -11994,6 +11996,7 @@ msgstr ""
 msgid "New text module"
 msgstr ""
 
+#: app/frontend/apps/desktop/addons/amber/AmberCreateTicketButton.vue:26
 #: app/frontend/apps/desktop/components/Form/fields/FieldNotifications/FieldNotificationsInput.vue:74
 #: app/frontend/apps/desktop/components/layout/LayoutSidebar/LeftSidebar/MenuContainer/AddMenu/plugins/ticket-create.ts:12
 #: app/frontend/apps/desktop/entities/ticket/composables/useTicketCreateTitle.ts:21
@@ -13363,6 +13366,7 @@ msgstr ""
 msgid "Overview: %s"
 msgstr ""
 
+#: app/frontend/apps/desktop/addons/amber/AmberOverviewSwitcher.vue:36
 #: app/assets/javascripts/app/controllers/_plugin/keyboard_shortcuts.coffee:158
 #: app/assets/javascripts/app/controllers/_profile/overviews.coffee:80
 #: app/assets/javascripts/app/controllers/clues/first_steps_clues.coffee:24
@@ -14273,6 +14277,7 @@ msgstr ""
 msgid "Proxy address"
 msgstr ""
 
+#: app/frontend/apps/desktop/addons/amber/AmberArticleTabs.vue:10
 #: app/assets/javascripts/app/controllers/knowledge_base/content_can_be_published_form.coffee:109
 #: app/frontend/apps/desktop/components/Ticket/TicketBulkEditFlyout/TicketBulkEditFlyout.vue:139
 #: app/frontend/apps/desktop/entities/knowledge-base/form/answerVisibilityOptions.ts:27
@@ -14583,6 +14588,7 @@ msgstr ""
 msgid "Relevance score threshold"
 msgstr ""
 
+#: app/frontend/apps/desktop/addons/amber/AmberOverviewToolbar.vue:39
 #: app/assets/javascripts/app/controllers/_plugin/maintenance.coffee:123
 #: app/assets/javascripts/app/controllers/widget/session_message.coffee:13
 msgid "Reload"
@@ -20128,6 +20134,7 @@ msgstr ""
 msgid "TicketID"
 msgstr ""
 
+#: app/frontend/apps/desktop/addons/amber/AmberOverviewSwitcher.vue:38
 #: app/assets/javascripts/app/controllers/_plugin/keyboard_shortcuts.coffee:453
 #: app/assets/javascripts/app/controllers/widget/user.coffee:87
 #: app/assets/javascripts/app/views/import/freshdesk.jst.eco:94
@@ -20284,6 +20291,7 @@ msgstr ""
 msgid "Timing"
 msgstr ""
 
+#: app/frontend/apps/desktop/addons/amber/AmberOverviewToolbar.vue:33
 #: app/assets/javascripts/app/models/knowledge_base.coffee:155
 #: app/assets/javascripts/app/models/knowledge_base_answer.coffee:29
 #: app/assets/javascripts/app/models/knowledge_base_category.coffee:76
@@ -20814,6 +20822,10 @@ msgstr ""
 
 #: app/frontend/apps/desktop/components/Ticket/DragAndDropBulk/DragAndDropBulkBottomDrawer.vue:173
 msgid "Unassign owner & move to group"
+msgstr ""
+
+#: app/frontend/apps/desktop/addons/amber/AmberOwnerCell.vue:29
+msgid "Unassigned"
 msgstr ""
 
 #: app/controllers/first_steps_controller.rb:206
